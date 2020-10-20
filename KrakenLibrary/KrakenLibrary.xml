@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KrakenLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:KrakenLibrary.Enums.OrderFlags">
+            <summary>
+            comma delimited list of order flags
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderFlags.viqc">
+            <summary>
+            volume in quote currency
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderFlags.fcib">
+            <summary>
+            prefer fee in base currency(default if selling)
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderFlags.fciq">
+            <summary>
+            prefer fee in quote currency(default if buying)
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderFlags.nompp">
+            <summary>
+            no market price protection
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderFlags.post">
+            <summary>
+            post only order(available when ordertype = limit)
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Enums.OrderStatus">
+            <summary>
+            status of order
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderStatus.pending">
+            <summary>
+            order pending book entry
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderStatus.open">
+            <summary>
+            open order
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderStatus.closed">
+            <summary>
+            closed order
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderStatus.canceled">
+            <summary>
+            order canceled
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Enums.OrderStatus.expired">
+            <summary>
+            order expired
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.AssetInfo">
+            <summary>
+            asset info
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetInfo.AlternateName">
+            <summary>
+            alternate name
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetInfo.AssetClass">
+            <summary>
+            asset class
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetInfo.Decimals">
+            <summary>
+            scaling decimal places for record keeping
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetInfo.DisplayDecimals">
+            <summary>
+            scaling decimal places for output display
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.AssetPair">
+            <summary>
+            Asset pair
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.AlternateName">
+            <summary>
+            alternate pair name
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.WebSocketName">
+            <summary>
+            WebSocket pair name (if available)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.AssetClassBase">
+            <summary>
+            asset class of base component
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.Base">
+            <summary>
+            asset id of base component
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.AssetClassQuote">
+            <summary>
+            asset class of quote component
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.Quote">
+            <summary>
+            asset id of quote component
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.Lot">
+            <summary>
+            volume lot size
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.PairDecimals">
+            <summary>
+            scaling decimal places for pair
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.LotDecimals">
+            <summary>
+            scaling decimal places for volume
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.LotMutliplier">
+            <summary>
+            amount to multiply lot volume by to get currency volume
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.LeverageBuy">
+            <summary>
+            array of leverage amounts available when buying
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.LeverageSell">
+            <summary>
+            array of leverage amounts available when selling
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.Fees">
+            <summary>
+            fee schedule array in [volume, percent fee] tuples
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.FeesMaker">
+            <summary>
+            maker fee schedule array in [volume, percent fee] tuples (if on maker/taker)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.FeeVolumeCurrency">
+            <summary>
+            volume discount currency
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.MarginCall">
+            <summary>
+            margin call level
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.MarginStop">
+            <summary>
+            stop-out/liquidation margin level
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.AssetPair.OrderMin">
+            <summary>
+            minimum order volume for pair
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.OrderBook">
+            <summary>
+            array of pair name and market depth
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.OrderBook.Asks">
+            <summary>
+            ask side array of array entries(price, volume, timestamp)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.OrderBook.Bids">
+            <summary>
+            bid side array of array entries(price, volume, timestamp)
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.Response`1">
+            <summary>
+            response
+            </summary>
+            <typeparam name="T">result</typeparam>
+        </member>
+        <member name="P:KrakenLibrary.Models.Response`1.Error">
+            <summary>
+            error
+            </summary>
+        </member>
+        <member name="F:KrakenLibrary.Models.Response`1.Result">
+            <summary>
+            result
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.ServerTime">
+            <summary>
+            Server's time
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.ServerTime.UnixTime">
+            <summary>
+            unix timestamp
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.ServerTime.Rfc1123">
+            <summary>
+            RFC 1123 time format
+            </summary>
+        </member>
+        <member name="T:KrakenLibrary.Models.Ticker">
+            <summary>
+            Ticker
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.Ask">
+            <summary>
+            ask array(price, whole_lot_volume, lot_volume)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.Bid">
+            <summary>
+            bid array(price, whole_lot_volume, lot_volume)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.LastTradeClosed">
+            <summary>
+            last trade closed array(price, lot_volume)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.Volume">
+            <summary>
+            volume array(today, last_24_hours)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.VolumeWeightedAveragePrice">
+            <summary>
+            volume weighted average price array(today, last_24_hours)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.NumberOfTrades">
+            <summary>
+            number of trades array(today, last_24_hours)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.Low">
+            <summary>
+            low array(today, last_24_hours>)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.High">
+            <summary>
+            high array(today, last_24_hours)
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.Ticker.TodayOpeningPrice">
+            <summary>
+            today's opening price
+            </summary>
+        </member>
+    </members>
+</doc>

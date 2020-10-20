@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KrakenApplicationProgrammingInterface</name>
+    </assembly>
+    <members>
+        <member name="T:KrakenApplicationProgrammingInterface.Client">
+            <summary>
+            Client.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:KrakenApplicationProgrammingInterface.Client.GetPrivateUserData``1(System.String,System.String)" -->
+        <member name="M:KrakenApplicationProgrammingInterface.Client.GetPublicMarketData``1(System.String)">
+            <summary>
+            Get public market data.
+            </summary>
+            <typeparam name="T">
+            Response type.
+            </typeparam>
+            <param name="endpoint">
+            Endpoint.
+            </param>
+            <returns>
+            <see cref="T:KrakenLibrary.Models.Response`1"/>
+            </returns>
+        </member>
+        <member name="T:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController">
+            <summary>
+            Private user data
+            </summary>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetAccountBalance">
+            <summary>
+            Get account balance
+            </summary>
+            <returns>
+            array of asset names and balance amount
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-account-balance
+            </remarks>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetTradeBalance">
+            <summary>
+            Get account balance
+            </summary>
+            <returns>
+            array of asset names and balance amount
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-trade-balance
+            </remarks>
+        </member>
+        <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
+            <summary>
+            Public market data
+            </summary>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetServerTime">
+            <summary>
+            Get server time
+            </summary>
+            <returns>
+            Server's time
+            </returns>
+            <example>
+            https://api.kraken.com/0/public/Time
+            </example>
+            <remarks>
+            This is to aid in approximating the skew time between the server and client.
+            https://www.kraken.com/features/api#get-server-time
+            </remarks>
+            <seealso cref="T:KrakenLibrary.Models.ServerTime"/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetAssetInfo" -->
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetTradableAssetPairs">
+            <summary>
+            Get tradable asset pairs
+            </summary>
+            <returns>
+            array of pair names and their info
+            </returns>
+            <example>
+            https://api.kraken.com/0/public/AssetPairs
+            </example>
+            <remarks>
+            If an asset pair is on a maker/taker fee schedule, the taker side is given in "fees" and maker side in "fees_maker".
+            For pairs not on maker/taker, they will only be given in "fees".
+            https://www.kraken.com/features/api#get-tradable-pairs
+            </remarks>
+            <seealso cref="T:KrakenLibrary.Models.AssetPair"/>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetTickerInfo">
+            <summary>
+            Get ticker information
+            </summary>
+            <returns>
+            array of pair names and their ticker info
+            </returns>
+            <example>
+            https://api.kraken.com/0/public/Ticker?pair=ADAETH
+            </example>
+            <remarks>
+            Today's prices start at 00:00:00 UTC
+            https://www.kraken.com/features/api#get-ticker-info
+            </remarks>
+            <seealso cref="T:KrakenLibrary.Models.Ticker"/>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetOpenHighLowCloseData">
+            <summary>
+            Get OHLC data
+            </summary>
+            <returns>
+            array of pair name and OHLC data
+            </returns>
+            <example>
+            https://api.kraken.com/0/public/OHLC?pair=ADAETH
+            </example>
+            <remarks>
+            the last entry in the OHLC array is for the current, not-yet-committed frame and will always be present, regardless of the value of "since".
+            https://www.kraken.com/features/api#get-ohlc-data
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetOrderBook" -->
+        <!-- Badly formed XML comment ignored for member "M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetRecentTrades" -->
+        <!-- Badly formed XML comment ignored for member "M:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController.GetSpreadData" -->
+        <member name="M:KrakenApplicationProgrammingInterface.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Create host builder.
+            </summary>
+            <param name="args">Arguments.</param>
+            <returns><see cref="T:Microsoft.AspNetCore.Hosting.IWebHostBuilder"/></returns>
+        </member>
+        <member name="T:KrakenApplicationProgrammingInterface.Settings">
+            <summary>
+            Settings.
+            </summary>
+        </member>
+        <member name="P:KrakenApplicationProgrammingInterface.Settings.ApiKey">
+            <summary>
+            Application Programming Interface Key.
+            </summary>
+        </member>
+        <member name="P:KrakenApplicationProgrammingInterface.Settings.PrivateKey">
+            <summary>
+            Private Key.
+            </summary>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime.
+            Use this method to add services to the container.
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime.
+            Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"><see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/></param>
+            <param name="env"><see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/></param>
+        </member>
+    </members>
+</doc>
