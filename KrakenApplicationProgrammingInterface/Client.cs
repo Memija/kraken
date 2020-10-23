@@ -49,7 +49,7 @@ namespace KrakenApplicationProgrammingInterface
         /// </returns>
         public async Task<Response<T>> GetPrivateUserData<T>(string endpoint, string input = null)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create($"{baseEndPoint}{version}{privateUserDataEndPoint}{endpoint}&asset=EUR");
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create($"{baseEndPoint}{version}{privateUserDataEndPoint}{endpoint}");
 
             string path = string.Format($"{version}{privateUserDataEndPoint}{endpoint}");
             byte[] pathBytes = Encoding.UTF8.GetBytes(path);
