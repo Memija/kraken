@@ -65,6 +65,19 @@
             Similarly, if the asset pair's pricing scale is 5, the scale will remain as 5, even if the underlying currency has a scale of 8.
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetClosedOrders">
+            <summary>
+            Get closed orders
+            </summary>
+            <returns>
+            array of order info
+            </returns>
+            <remarks>
+            https://api.kraken.com/0/private/ClosedOrders
+            Times given by order tx ids are more accurate than unix timestamps.
+            If an order tx id is given for the time, the order's open time is used
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

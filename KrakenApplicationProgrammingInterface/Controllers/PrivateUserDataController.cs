@@ -75,5 +75,24 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getOpenOrdersEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get closed orders
+        /// </summary>
+        /// <returns>
+        /// array of order info
+        /// </returns>
+        /// <remarks>
+        /// https://api.kraken.com/0/private/ClosedOrders
+        /// Times given by order tx ids are more accurate than unix timestamps.
+        /// If an order tx id is given for the time, the order's open time is used
+        /// </remarks>
+        [HttpGet("get-closed-orders")]
+        public async Task<Response<object>> GetClosedOrders()
+        {
+            string getClosedOrdersEndpoint = "ClosedOrders";
+
+            return await client.GetPrivateUserData<object>($"{getClosedOrdersEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
