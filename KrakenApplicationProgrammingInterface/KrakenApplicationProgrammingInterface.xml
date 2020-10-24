@@ -78,6 +78,17 @@
             If an order tx id is given for the time, the order's open time is used
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.QueryOrdersInfo">
+            <summary>
+            Query orders info
+            </summary>
+            <returns>
+            associative array of orders info
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#query-orders-info
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

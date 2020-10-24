@@ -94,5 +94,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getClosedOrdersEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Query orders info
+        /// </summary>
+        /// <returns>
+        /// associative array of orders info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#query-orders-info
+        /// </remarks>
+        [HttpGet("query-orders-info")]
+        public async Task<Response<object>> QueryOrdersInfo()
+        {
+            string queryOrdersInfoEndpoint = "QueryOrders";
+
+            return await client.GetPrivateUserData<object>($"{queryOrdersInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
