@@ -113,6 +113,19 @@
             https://www.kraken.com/features/api#query-trades-info
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetOpenPositions">
+            <summary>
+            Get open positions
+            </summary>
+            <returns>
+            associative array of open position info
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-open-positions
+            Using the consolidation optional field will result in consolidated view of the data being returned.
+            Unless otherwise stated, costs, fees, prices, and volumes are in the asset pair's scale, not the currency's scale.
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

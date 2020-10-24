@@ -147,5 +147,24 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{queryTradesInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get open positions
+        /// </summary>
+        /// <returns>
+        /// associative array of open position info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-open-positions
+        /// Using the consolidation optional field will result in consolidated view of the data being returned.
+        /// Unless otherwise stated, costs, fees, prices, and volumes are in the asset pair's scale, not the currency's scale.
+        /// </remarks>
+        [HttpGet("get-open-positions")]
+        public async Task<Response<object>> GetOpenPositions()
+        {
+            string getOpenPositionsEndpoint = "OpenPositions";
+
+            return await client.GetPrivateUserData<object>($"{getOpenPositionsEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
