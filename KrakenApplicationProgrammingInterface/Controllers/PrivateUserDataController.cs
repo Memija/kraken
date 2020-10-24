@@ -130,5 +130,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getTradesHistoryEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Query trades info
+        /// </summary>
+        /// <returns>
+        /// associative array of trades info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#query-trades-info
+        /// </remarks>
+        [HttpGet("query-trades-info")]
+        public async Task<Response<object>> QueryTradesInfo()
+        {
+            string queryTradesInfoEndpoint = "QueryTrades";
+
+            return await client.GetPrivateUserData<object>($"{queryTradesInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
