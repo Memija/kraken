@@ -9,7 +9,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace KrakenApplicationProgrammingInterface
@@ -53,6 +55,9 @@ namespace KrakenApplicationProgrammingInterface
                         Title = "Kraken API",
                         Version = "1"
                     });
+                string documentationFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                string documentationFilePath = Path.Combine(AppContext.BaseDirectory, documentationFile);
+                setupAction.IncludeXmlComments(documentationFilePath);
             });
         }
 
@@ -75,6 +80,13 @@ namespace KrakenApplicationProgrammingInterface
 
             app.UseHttpsRedirection();
             app.UseSwagger();
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint(
+                    "swagger/KrakenAPI/swagger.json",
+                    "Kraken Application Programming Interface");
+                setupAction.RoutePrefix = "";
+            });
             app.UseMvc();
         }
     }

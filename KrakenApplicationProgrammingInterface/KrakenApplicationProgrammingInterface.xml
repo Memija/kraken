@@ -42,7 +42,7 @@
         </member>
         <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetTradeBalance">
             <summary>
-            Get account balance
+            Get trade balance
             </summary>
             <returns>
             array of asset names and balance amount
@@ -124,6 +124,18 @@
             https://www.kraken.com/features/api#get-open-positions
             Using the consolidation optional field will result in consolidated view of the data being returned.
             Unless otherwise stated, costs, fees, prices, and volumes are in the asset pair's scale, not the currency's scale.
+            </remarks>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetLedgersInfo">
+            <summary>
+            Get ledgers info
+            </summary>
+            <returns>
+            associative array of ledgers info
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-ledgers-info
+            Times given by ledger ids are more accurate than unix timestamps.
             </remarks>
         </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">

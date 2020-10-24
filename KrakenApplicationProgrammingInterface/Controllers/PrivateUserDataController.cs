@@ -40,7 +40,7 @@ namespace KrakenApplicationProgrammingInterface.Controllers
         }
 
         /// <summary>
-        /// Get account balance
+        /// Get trade balance
         /// </summary>
         /// <returns>
         /// array of asset names and balance amount
@@ -165,6 +165,24 @@ namespace KrakenApplicationProgrammingInterface.Controllers
             string getOpenPositionsEndpoint = "OpenPositions";
 
             return await client.GetPrivateUserData<object>($"{getOpenPositionsEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
+
+        /// <summary>
+        /// Get ledgers info
+        /// </summary>
+        /// <returns>
+        /// associative array of ledgers info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-ledgers-info
+        /// Times given by ledger ids are more accurate than unix timestamps.
+        /// </remarks>
+        [HttpGet("get-ledgers-info")]
+        public async Task<Response<object>> GetLedgersInfo()
+        {
+            string getLedgersInfoEndpoint = "Ledgers";
+
+            return await client.GetPrivateUserData<object>($"{getLedgersInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
     }
 }

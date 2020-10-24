@@ -55,6 +55,7 @@ namespace KrakenApplicationProgrammingInterface.Controllers
         /// https://api.kraken.com/0/public/Assets?aclass=currency
         /// http://api.kraken.com/0/public/Assets?asset=ADA
         /// https://api.kraken.com/0/public/Assets?aclass=currency&asset=ada
+        /// </example>
         /// <remarks>
         /// https://www.kraken.com/features/api#get-asset-info
         /// </remarks>
@@ -168,7 +169,7 @@ namespace KrakenApplicationProgrammingInterface.Controllers
         /// <remarks>
         /// https://www.kraken.com/features/api#get-recent-trades
         /// </remarks>
-        [HttpGet("get-order-book")]
+        [HttpGet("get-recent-trades")]
         public async Task<Response<object>> GetRecentTrades()
         {
             string getRecentTradesEndpoint = "Trades";
