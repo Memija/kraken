@@ -111,5 +111,24 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{queryOrdersInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get trades history
+        /// </summary>
+        /// <returns>
+        /// array of trade info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-trades-history
+        /// Unless otherwise stated, costs, fees, prices, and volumes are in the asset pair's scale, not the currency's scale.
+        /// Times given by trade tx ids are more accurate than unix timestamps.
+        /// </remarks>
+        [HttpGet("get-trades-history")]
+        public async Task<Response<object>> GetTradesHistory()
+        {
+            string getTradesHistoryEndpoint = "TradesHistory";
+
+            return await client.GetPrivateUserData<object>($"{getTradesHistoryEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
