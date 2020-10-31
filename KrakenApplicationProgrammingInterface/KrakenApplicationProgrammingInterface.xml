@@ -138,6 +138,17 @@
             Times given by ledger ids are more accurate than unix timestamps.
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.QueryLedgers">
+            <summary>
+            Query ledgers
+            </summary>
+            <returns>
+            associative array of ledgers info
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#query-ledgers
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

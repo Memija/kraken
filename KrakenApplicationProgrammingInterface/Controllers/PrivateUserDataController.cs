@@ -184,5 +184,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getLedgersInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Query ledgers
+        /// </summary>
+        /// <returns>
+        /// associative array of ledgers info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#query-ledgers
+        /// </remarks>
+        [HttpGet("query-ledgers")]
+        public async Task<Response<object>> QueryLedgers()
+        {
+            string queryLedgersEndpoint = "QueryLedgers";
+
+            return await client.GetPrivateUserData<object>($"{queryLedgersEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
