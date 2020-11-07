@@ -149,6 +149,19 @@
             https://www.kraken.com/features/api#query-ledgers
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetTradeVolume">
+            <summary>
+            Get trade volume
+            </summary>
+            <returns>
+            associative array of trade volume
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-trade-volume
+            If an asset pair is on a maker/taker fee schedule, the taker side is given in "fees" and maker side in "fees_maker".
+            For pairs not on maker/taker, they will only be given in "fees".
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

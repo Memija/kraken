@@ -12,6 +12,7 @@ namespace KrakenApplicationProgrammingInterface.Controllers
     /// Private user data
     /// </summary>
     [ApiController]
+    [Produces("application/json")]
     [Route("api/private-user-data")]
     public class PrivateUserDataController : ControllerBase
     {
@@ -198,6 +199,25 @@ namespace KrakenApplicationProgrammingInterface.Controllers
         public async Task<Response<object>> QueryLedgers()
         {
             string queryLedgersEndpoint = "QueryLedgers";
+
+            return await client.GetPrivateUserData<object>($"{queryLedgersEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
+
+        /// <summary>
+        /// Get trade volume
+        /// </summary>
+        /// <returns>
+        /// associative array of trade volume
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-trade-volume
+        /// If an asset pair is on a maker/taker fee schedule, the taker side is given in "fees" and maker side in "fees_maker".
+        /// For pairs not on maker/taker, they will only be given in "fees".
+        /// </remarks>
+        [HttpGet("get-trade-volume")]
+        public async Task<Response<object>> GetTradeVolume()
+        {
+            string queryLedgersEndpoint = "TradeVolume";
 
             return await client.GetPrivateUserData<object>($"{queryLedgersEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }

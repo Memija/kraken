@@ -12,6 +12,7 @@ namespace KrakenApplicationProgrammingInterface.Controllers
     /// Public market data
     /// </summary>
     [ApiController]
+    [Produces("application/json")]
     [Route("api/public-market-data")]
     public class PublicMarketDataController : ControllerBase
     {
