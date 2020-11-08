@@ -162,6 +162,17 @@
             For pairs not on maker/taker, they will only be given in "fees".
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.RequestExportReport">
+            <summary>
+            Request export report
+            </summary>
+            <returns>
+            report id
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#add-history-export
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

@@ -217,9 +217,26 @@ namespace KrakenApplicationProgrammingInterface.Controllers
         [HttpGet("get-trade-volume")]
         public async Task<Response<object>> GetTradeVolume()
         {
-            string queryLedgersEndpoint = "TradeVolume";
+            string getTradeVolumeEndpoint = "TradeVolume";
 
-            return await client.GetPrivateUserData<object>($"{queryLedgersEndpoint}{this.HttpContext.Request.QueryString.Value}");
+            return await client.GetPrivateUserData<object>($"{getTradeVolumeEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
+
+        /// <summary>
+        /// Request export report
+        /// </summary>
+        /// <returns>
+        /// report id
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#add-history-export
+        /// </remarks>
+        [HttpGet("request-export-report")]
+        public async Task<Response<object>> RequestExportReport()
+        {
+            string requestExportReportEndpoint = "AddExport";
+
+            return await client.GetPrivateUserData<object>($"{requestExportReportEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
     }
 }
