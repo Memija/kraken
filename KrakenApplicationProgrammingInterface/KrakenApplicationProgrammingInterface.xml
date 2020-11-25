@@ -173,6 +173,17 @@
             https://www.kraken.com/features/api#add-history-export
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.GetExportStatuses">
+            <summary>
+            Get export statuses
+            </summary>
+            <returns>
+            array of reports and their info
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#get-export-statuses
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

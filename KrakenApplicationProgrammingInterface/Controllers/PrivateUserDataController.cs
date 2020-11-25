@@ -238,5 +238,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{requestExportReportEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get export statuses
+        /// </summary>
+        /// <returns>
+        /// array of reports and their info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-export-statuses
+        /// </remarks>
+        [HttpGet("get-export-statuses")]
+        public async Task<Response<object>> GetExportStatuses()
+        {
+            string getExportStatusesEndpoint = "ExportStatus";
+
+            return await client.GetPrivateUserData<object>($"{getExportStatusesEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
