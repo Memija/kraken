@@ -255,5 +255,24 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getExportStatusesEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get export report
+        /// </summary>
+        /// <returns>
+        /// binary zip archive containing the report
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-history-export
+        /// If content-type isn't application/json, text, or html, the binary report will be streamed back.
+        /// If it is one of those types you can expect an error in the response.
+        /// </remarks>
+        [HttpGet("get-export-report")]
+        public async Task<Response<object>> GetExportReport()
+        {
+            string getExportReportEndpoint = "RetrieveExport";
+
+            return await client.GetPrivateUserData<object>($"{getExportReportEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
