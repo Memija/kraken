@@ -197,6 +197,20 @@
             If it is one of those types you can expect an error in the response.
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserDataController.RemoveExportReport">
+            <summary>
+            Remove export report
+            </summary>
+            <returns>
+            bool with result of call
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#remove-history-export
+            The delete remove type can only be used for a report that has already been processed.
+            Use cancel for queued and processing statuses.
+            In the case where a cancel or delete operation has already taken place on a particular report id, you will get back the WExport:Already processed error.
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

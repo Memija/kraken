@@ -274,5 +274,25 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<object>($"{getExportReportEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Remove export report
+        /// </summary>
+        /// <returns>
+        /// bool with result of call
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#remove-history-export
+        /// The delete remove type can only be used for a report that has already been processed.
+        /// Use cancel for queued and processing statuses.
+        /// In the case where a cancel or delete operation has already taken place on a particular report id, you will get back the WExport:Already processed error.
+        /// </remarks>
+        [HttpGet("remove-export-report")]
+        public async Task<Response<object>> RemoveExportReport()
+        {
+            string removeExportReportEndpoint = "RemoveExport";
+
+            return await client.GetPrivateUserData<object>($"{removeExportReportEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
