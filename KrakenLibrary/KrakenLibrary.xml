@@ -184,6 +184,31 @@
             minimum order volume for pair
             </summary>
         </member>
+        <member name="T:KrakenLibrary.Models.DepositMethod">
+            <summary>
+            Deposit method
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.DepositMethod.Method">
+            <summary>
+            name of deposit method
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.DepositMethod.Limit">
+            <summary>
+            maximum net amount that can be deposited right now, or false if no limit
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.DepositMethod.Fee">
+            <summary>
+            amount of fees that will be paid
+            </summary>
+        </member>
+        <member name="P:KrakenLibrary.Models.DepositMethod.AddressSetupFee">
+            <summary>
+            whether or not method has an address setup fee(optional)
+            </summary>
+        </member>
         <member name="T:KrakenLibrary.Models.OrderBook">
             <summary>
             array of pair name and market depth

@@ -211,6 +211,26 @@
             In the case where a cancel or delete operation has already taken place on a particular report id, you will get back the WExport:Already processed error.
             </remarks>
         </member>
+        <member name="T:KrakenApplicationProgrammingInterface.Controllers.PrivateUserFundingController">
+            <summary>
+            Private user funding
+            </summary>
+            <remarks>
+            This is a tentative funding API and may be updated in the future.
+            </remarks>
+        </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserFundingController.GetDepositMethods">
+            <summary>
+            Get deposit methods
+            </summary>
+            <returns>
+            associative array of deposit methods
+            </returns>
+            <see cref="T:KrakenLibrary.Models.DepositMethod"/>
+            <remarks>
+            https://www.kraken.com/features/api#deposit-methods
+            </remarks>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data
