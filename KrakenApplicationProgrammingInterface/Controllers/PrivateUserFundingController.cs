@@ -126,5 +126,27 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<List<object>>($"{getWithdrawStatusEndpoint}?{nameof(asset)}={asset}");
         }
+
+        /// <summary>
+        /// Request withdrawal cancelation
+        /// </summary>
+        /// <returns>
+        /// true on success
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#withdraw-cancel
+        /// **Cancelation cannot be guaranteed.**
+        /// This will put in a cancelation request.
+        /// Depending upon how far along the withdrawal process is, it may not be possible to cancel the withdrawal.
+        /// </remarks>
+        /// <param name="asset">asset being withdrawn</param>
+        /// <param name="refid">withdrawal reference id</param>
+        [HttpGet, Route("{asset}&{refid}", Name = "request-withdrawal-cancelation")]
+        public async Task<Response<bool>> RequestWithdrawalCancelation([FromRoute] string asset, [FromRoute] string refid)
+        {
+            string requestWithdrawalCancelationEndpoint = "WithdrawCancel";
+
+            return await client.GetPrivateUserData<bool>($"{requestWithdrawalCancelationEndpoint}?{nameof(asset)}={asset}&{nameof(refid)}={refid}");
+        }
     }
 }

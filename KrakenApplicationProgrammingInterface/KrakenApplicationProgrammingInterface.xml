@@ -287,6 +287,22 @@
             </remarks>
             <param name="asset">asset being withdrawn</param>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserFundingController.RequestWithdrawalCancelation(System.String,System.String)">
+            <summary>
+            Request withdrawal cancelation
+            </summary>
+            <returns>
+            true on success
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#withdraw-cancel
+            **Cancelation cannot be guaranteed.**
+            This will put in a cancelation request.
+            Depending upon how far along the withdrawal process is, it may not be possible to cancel the withdrawal.
+            </remarks>
+            <param name="asset">asset being withdrawn</param>
+            <param name="refid">withdrawal reference id</param>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data
