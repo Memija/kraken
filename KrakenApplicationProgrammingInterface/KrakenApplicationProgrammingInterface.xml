@@ -275,6 +275,18 @@
             https://www.kraken.com/features/api#withdraw-funds
             </remarks>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserFundingController.GetWithdrawStatus(System.String)">
+            <summary>
+            Get status of recent withdrawals
+            </summary>
+            <returns>
+            array of array withdrawal status information
+            </returns>
+            <remarks>
+            https://www.kraken.com/features/api#withdraw-status
+            </remarks>
+            <param name="asset">asset being withdrawn</param>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data

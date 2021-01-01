@@ -108,5 +108,23 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<List<object>>($"{withdrawEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get status of recent withdrawals
+        /// </summary>
+        /// <returns>
+        /// array of array withdrawal status information
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#withdraw-status
+        /// </remarks>
+        /// <param name="asset">asset being withdrawn</param>
+        [HttpGet, Route("{asset}", Name="get-withdraw-status")]
+        public async Task<Response<List<object>>> GetWithdrawStatus([FromRoute] string asset)
+        {
+            string getWithdrawStatusEndpoint = "WithdrawStatus";
+
+            return await client.GetPrivateUserData<List<object>>($"{getWithdrawStatusEndpoint}?{nameof(asset)}={asset}");
+        }
     }
 }
