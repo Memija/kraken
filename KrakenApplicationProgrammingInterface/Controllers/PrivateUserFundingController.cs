@@ -74,5 +74,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<List<object>>($"{getDepositStatusEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get withdrawal information
+        /// </summary>
+        /// <returns>
+        /// associative array of withdrawal info
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#get-withdrawal-info
+        /// </remarks>
+        [HttpGet("get-withdraw-info")]
+        public async Task<Response<List<object>>> GetWithdrawInfo()
+        {
+            string getWithdrawInfoEndpoint = "WithdrawInfo";
+
+            return await client.GetPrivateUserData<List<object>>($"{getWithdrawInfoEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
