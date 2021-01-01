@@ -40,5 +40,22 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<List<DepositMethod>>($"{getDepositMethodsEndpoint}{this.HttpContext.Request.QueryString.Value}");
         }
+
+        /// <summary>
+        /// Get deposit addresses
+        /// </summary>
+        /// <returns>
+        /// associative array of deposit addresses
+        /// </returns>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#deposit-addresses
+        /// </remarks>
+        [HttpGet("get-deposit-addresses")]
+        public async Task<Response<List<object>>> GetDepositAddresses()
+        {
+            string getDepositAddressesEndpoint = "DepositAddresses?SynapsePay";
+
+            return await client.GetPrivateUserData<List<object>>($"{getDepositAddressesEndpoint}{this.HttpContext.Request.QueryString.Value}");
+        }
     }
 }
