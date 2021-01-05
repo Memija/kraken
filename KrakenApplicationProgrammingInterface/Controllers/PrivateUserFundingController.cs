@@ -148,5 +148,36 @@ namespace KrakenApplicationProgrammingInterface.Controllers
 
             return await client.GetPrivateUserData<bool>($"{requestWithdrawalCancelationEndpoint}?{nameof(asset)}={asset}&{nameof(refid)}={refid}");
         }
+
+        /// <summary>
+        /// Wallet Transfer
+        /// </summary>
+        /// <remarks>
+        /// https://www.kraken.com/features/api#wallet-transfer
+        /// </remarks>
+        /// <param name="asset">asset being withdrawn</param>
+        /// <param name="to">
+        /// which wallet the funds are being transferred to
+        /// Futures Wallet (default)
+        /// </param>
+        /// <param name="from">
+        /// which wallet the funds are being transferred from
+        /// Spot Wallet (default)
+        /// </param>
+        /// <param name="amount">amount to withdraw, including fees</param>
+        /// <returns>
+        /// associative array of transfer transaction
+        /// </returns>
+        [HttpGet, Route("{asset}&{to}&{from}&{amount}", Name = "wallet-transfer")]
+        public async Task<Response<object>> WalletTransfer(
+            [FromRoute] string asset,
+            [FromRoute] string to,
+            [FromRoute] string from,
+            [FromRoute] string amount)
+        {
+            string requestWithdrawalCancelationEndpoint = "WalletTransfer";
+
+            return await client.GetPrivateUserData<object>($"{requestWithdrawalCancelationEndpoint}?{nameof(asset)}={asset}&{nameof(to)}={to}&{nameof(from)}={from}&{nameof(amount)}={amount}");
+        }
     }
 }

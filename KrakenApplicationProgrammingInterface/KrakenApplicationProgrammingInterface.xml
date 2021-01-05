@@ -303,6 +303,27 @@
             <param name="asset">asset being withdrawn</param>
             <param name="refid">withdrawal reference id</param>
         </member>
+        <member name="M:KrakenApplicationProgrammingInterface.Controllers.PrivateUserFundingController.WalletTransfer(System.String,System.String,System.String,System.String)">
+            <summary>
+            Wallet Transfer
+            </summary>
+            <remarks>
+            https://www.kraken.com/features/api#wallet-transfer
+            </remarks>
+            <param name="asset">asset being withdrawn</param>
+            <param name="to">
+            which wallet the funds are being transferred to
+            Futures Wallet (default)
+            </param>
+            <param name="from">
+            which wallet the funds are being transferred from
+            Spot Wallet (default)
+            </param>
+            <param name="amount">amount to withdraw, including fees</param>
+            <returns>
+            associative array of transfer transaction
+            </returns>
+        </member>
         <member name="T:KrakenApplicationProgrammingInterface.Controllers.PublicMarketDataController">
             <summary>
             Public market data
